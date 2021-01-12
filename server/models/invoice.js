@@ -24,6 +24,9 @@ const InvoiceSchema = new mongoose.Schema(
       type: String,
       maxlength: 1000,
     },
+    total: {
+      type: Number,
+    },
     status: {
       type: String,
       enum: ["published"],

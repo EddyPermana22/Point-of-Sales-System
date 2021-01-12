@@ -8,10 +8,17 @@ class InvoiceController {
     try {
       const { customerName, salesPersonName, notes, products } = req.body;
 
+      let total = 0;
+
+      products.forEach((product) => {
+        total += +product.price * +product.quantity;
+      });
+
       const newInvoiceData = {
         customerName: customerName,
         salesPersonName: salesPersonName,
         notes: notes,
+        total: total,
       };
 
       const invoice = await InvoiceModel.create(newInvoiceData);
@@ -30,6 +37,22 @@ class InvoiceController {
 
       res.status(200).json({
         message: "invoice created!",
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  static getAll = async (req, res, next) => {
+    try {
+      const { offset } = req.body;
+
+      const invoices = await InvoiceModel.find()
+        .skip(+offset)
+        .limit(10);
+
+      res.status(200).json({
+        invoices,
       });
     } catch (error) {
       next(error);
