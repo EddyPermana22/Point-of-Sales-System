@@ -9,7 +9,11 @@ const cors = require("cors");
 const port = process.env.PORT;
 const mongoURL = process.env.MONGOURL;
 
+const Router = require("./routers");
+
 const app = express();
+
+app.use(Router);
 
 mongoose
   .connect(mongoURL, {
