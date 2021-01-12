@@ -4,6 +4,10 @@ const mongoose = require("mongoose");
 
 const SoldProductSchema = new mongoose.Schema(
   {
+    invoice: {
+      type: mongoose.Types.ObjectId,
+      ref: "Invoice",
+    },
     name: {
       type: String,
       required: true,
