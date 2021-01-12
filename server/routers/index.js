@@ -1,5 +1,11 @@
-"use strict"
+"use strict";
 
-const rootRouter = require("express").Router()
+const rootRouter = require("express").Router();
 
-module.exports = rootRouter
+rootRouter.get("/", (req, res, next) => {
+  res.status(200).json({
+    message: `WidaTech POS API Server Ready!`,
+  });
+});
+
+module.exports = rootRouter;
