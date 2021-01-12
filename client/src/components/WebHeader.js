@@ -8,10 +8,10 @@ const WebHeader = () => {
         POS Application
       </Link>
       <button
-        class="navbar-toggler position-absolute d-md-none collapsed"
+        className="navbar-toggler position-absolute d-md-none collapsed"
         type="button"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span className="navbar-toggler-icon"></span>
       </button>
     </header>
   );
