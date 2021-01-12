@@ -10,10 +10,16 @@ const port = process.env.PORT;
 const mongoURL = process.env.MONGOURL;
 
 const Router = require("./routers");
+const errorHandler = require("./middlewares/errorHandler");
 
 const app = express();
 
+app.use(cors());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 app.use(Router);
+app.use(errorHandler);
 
 mongoose
   .connect(mongoURL, {
