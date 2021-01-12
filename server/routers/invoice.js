@@ -1,5 +1,9 @@
-"use strict"
+"use strict";
 
-const InvoiceRouter = require("express").Router()
+const InvoiceRouter = require("express").Router();
 
-module.exports = InvoiceRouter
+const InvoiceController = require("../controllers/invoice");
+
+InvoiceRouter.post("/", InvoiceController.add);
+
+module.exports = InvoiceRouter;
