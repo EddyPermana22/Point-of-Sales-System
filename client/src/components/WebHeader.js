@@ -7,6 +7,12 @@ const WebHeader = () => {
       <Link to="/" className="navbar-brand col-md-3 col-lg-2 me-0 px-3">
         POS Application
       </Link>
+      <button
+        class="navbar-toggler position-absolute d-md-none collapsed"
+        type="button"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </header>
   );
 };
