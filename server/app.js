@@ -11,6 +11,17 @@ const mongoURL = process.env.MONGOURL;
 
 const app = express();
 
-app.listen(port, () => {
-  console.log(`nodeJS server running on port ${port}`);
-});
+mongoose
+  .connect(mongoURL, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+  })
+  .then(() => {
+    console.log(`connected to database, ${mongoURL}`);
+    app.listen(port, () => {
+      console.log(`nodeJS server running on port ${port}`);
+    });
+  })
+  .catch((err) => {
+    console.log(`error when starting the server, ${err}`);
+  });
